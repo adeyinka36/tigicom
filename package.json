@@ -1,0 +1,26 @@
+{
+  "name": "cosmetics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "App.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "env": "^0.0.2",
+    "express": "^4.17.1",
+    "sequelize": "^5.21.7",
+    "sqlite": "^4.0.7",
+    "sqlite3": "^4.0.9",
+    "stripe": "^8.49.0",
+    "uuid": "^8.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm rum build --prefix client"
+  },
+  "author": "",
+  "license": "ISC"
+}

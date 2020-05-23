@@ -1,0 +1,73 @@
+const express = require('express');
+const stripe= require('stripe')("sk_test_EwaBCToz7hMAkHjTVGT2Ya4m00Lo4gr2LJ");
+const uuid = require('uuid/v4');
+const {products,purchases} = require('../models')
+
+const routes = express.Router();
+
+
+// stripe payment route 
+routes.post('/makepayment',async (req,res)=>{
+let quantityPurchased=req.body.product.map(e=>e.quantity)
+ quantityPurchased=quantityPurchased.reduce((cur,acc)=>cur+acc)
+
+ const items=req.body.product
+ const {}=req.body.product
+ let  arrayOfCosts=items.map(item=>Number(item.quantity))
+ let  ItemsBought= items.map(e=>e.name)
+ arrayOfCosts=items.map(e=>Number(e.cost)*Number(e.quantity))
+let  totalCost
+totalCost=arrayOfCosts.reduce((accumulator,currentValue)=>{return Number(accumulator)+Number(currentValue)})
+
+  const  thetoken= req.body.token;
+  const token={...thetoken}
+   const product=Object.create(null)
+   product.currency="usd"
+   product.amount=totalCost
+   
+  const unique = uuid();
+
+  
+  const id=Object.create(null)
+   id.itempotencyKey=unique
+  
+const detailsOfPurchase={customerName:req.body.firstName,
+                         customerEmail:req.body.token.email,
+                          amountCharged:arrayOfCosts,
+                           quantityPurchased,
+                          deliveryStatus:"Pending",
+                          deliveryAddress:`${req.body.street} ${req.body.city} ${req.body.postcode}`}
+ 
+return stripe.customers.create({
+      email:token.email,
+      source:token.id
+  }).then(customer=>{
+      product.customer=customer.id
+      stripe.charges.create(product)
+  }).then(result=>{
+    //   insert details of purcheses into purchase model
+    purchases.create(detailsOfPurchase)
+     
+
+    return res.status(200).json(result)})
+  .catch(err=>console.log(`There was an error  :${err}`))
+})
+
+
+
+// route for getting initial products for database 
+
+routes.get('/getproducts',async (req,res)=>{
+  try{
+      console.log("sending products")
+  const items=  await products.findAll()
+    return res.status(200).json(items)
+  }catch(err){
+      
+      console.log(`Error is getproducts routs: ${err}`)
+      return res.status(500)
+  }
+
+})
+
+module.exports=routes
