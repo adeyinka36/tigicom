@@ -70,7 +70,7 @@ localStorage.setItem("cart",cartJson)
 componentDidMount(){
     
 // fillin up the state with details of products from the database
- return fetch(`http://localhost:5000/getproducts`)
+ return fetch(`http://localhost:${process.env.PORT}/getproducts`)
  .then(res=>{
      console.log(`result from initia get ::${res}`)
      if(res.status===200){return res.json() }
