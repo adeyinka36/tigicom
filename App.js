@@ -41,25 +41,7 @@ app.use(routes);
 app.listen(port,async ()=>{
     try{
         await sequelize.sync({force:true})
-        await products.bulkCreate([{
-            name:"Brazil",
-            img:"../image/blackgirl.jpg",
-            cost:"50",
-            stock:"20",
-            description:"A beautiful type of hair from Brazil"
-        },
-        {name:"Mexican",
-            img:"../image/blackgirl.jpg",
-            cost:"50",
-            stock:"20",
-            description:"A beautiful type of hair from Mexico"},
-            {
-                name:"Japan",
-            img:"../image/blackgirl.jpg",
-            cost:"50",
-            stock:"20",
-            description:"A beautiful type of hair from Japan"
-            }])
+
 
         console.log(`Listening ${process.env.PRIVSTRIPE}  `)
     }catch(err){

@@ -1,7 +1,10 @@
 const express = require('express');
 const stripe= require('stripe')("sk_test_EwaBCToz7hMAkHjTVGT2Ya4m00Lo4gr2LJ");
 const uuid = require('uuid/v4');
-const {products,purchases} = require('../models')
+const {mongoose, Schema}= require('mongoose');
+
+
+// const {products,purchases} = require('../models')
 
 const routes = express.Router();
 
@@ -46,7 +49,7 @@ return stripe.customers.create({
       stripe.charges.create(product)
   }).then(result=>{
     //   insert details of purcheses into purchase model
-    purchases.create(detailsOfPurchase)
+    // purchases.create(detailsOfPurchase)
      
 
     return res.status(200).json(result)})
@@ -59,7 +62,24 @@ return stripe.customers.create({
 
 routes.get('/getproducts',async (req,res)=>{
   try{
-      console.log("sending products")
+    const db=`mongodb+srv://adeyinka36:Nitrogene2000@cluster0-kni2n.mongodb.net/test?retryWrites=true&w=majority`;
+    mongoose.connect(db
+        ,{
+        useUnifiedTopology: true ,
+            useNewUrlParser: true }
+            )
+
+  mongoose.connection.on('connected',()=>{console.log("finally we are connected")}).catch(err=>console.log(`there is an error:${err}`))
+            
+  const productsItems= new Schema({
+    name:String,
+    description:String,
+    stock:Number,
+    cost:Number
+})
+const products= mongoose.model('products',productsItems);
+
+
   const items=  await products.findAll()
     return res.status(200).json(items)
   }catch(err){
