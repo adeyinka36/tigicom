@@ -69,11 +69,11 @@ localStorage.setItem("cart",cartJson)
 
 componentDidMount(){
     
-    console.log(`running contex:${process.env.PORT}`)
+    
 // fillin up the state with details of products from the database
- return fetch(`/api/getproducts`)
+ return fetch(`https://vast-brook-05527.herokuapp.com/api/getproducts`)
  .then(res=>{
-     console.log(`result from initial get ::${res}`)
+     console.log(`result from initia get ::${res}`)
      if(res.status===200){return res.json() }
      else{return console.log( `there was an error retrieving initial data form database`)}
      
