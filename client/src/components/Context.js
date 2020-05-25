@@ -73,14 +73,14 @@ componentDidMount(){
     
 // fillin up the state with details of products from the database
  return axios.get(`/api/getproducts`)
- .then(res=>{
-      console.log(res)  
-      console.log(res.body)
-     if(res.status===200){return res.json() }
+ .then(response=>{
+      console.log(response)  
+     if(res.status===200){return res }
      else{return console.log( `there was an error retrieving initial data form database`)}
      
  })
  .then(res=>{
+     console.log(res)
      const data=JSON.stringify(res)
      localStorage.setItem("data",data)
      this.setState({items:[...res]})})
