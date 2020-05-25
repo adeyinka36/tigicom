@@ -1,5 +1,6 @@
 import React,{Component } from 'react';
 import randomId from 'react-id-generator';
+import axios from 'axios'
  
 
 
@@ -71,7 +72,7 @@ componentDidMount(){
     
     
 // fillin up the state with details of products from the database
- return fetch(`https://vast-brook-05527.herokuapp.com/api/getproducts`)
+ return axios.get(`/api/getproducts`)
  .then(res=>{
      console.log(`result from initia get ::${res}`)
      if(res.status===200){return res.json() }
