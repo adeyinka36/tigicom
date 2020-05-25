@@ -72,12 +72,12 @@ componentDidMount(){
 // fillin up the state with details of products from the database
  return fetch(`http://localhost:5000/getproducts`)
  .then(res=>{
+     console.log(`result from initia get ::${res}`)
      if(res.status===200){return res.json() }
      else{return console.log( `there was an error retrieving initial data form database`)}
      
  })
  .then(res=>{
-     console.log(res);
      const data=JSON.stringify(res)
      localStorage.setItem("data",data)
      this.setState({items:[...res]})})

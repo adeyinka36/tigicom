@@ -112,7 +112,7 @@ return(
     )
 }
 else{
-    return(<div>Loading...</div>)
+    return(<div className="loaing"><h1>Loading...</h1></div>)
 }
 }
 

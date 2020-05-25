@@ -12,6 +12,8 @@ const mongoose = require('mongoose');
 
 const port=process.env.PORT||5000;
 
+let myPort
+
 
 const app = express();
 
@@ -50,7 +52,9 @@ app.listen(port,async ()=>{
             )
         await mongoose.connection
 
-        console.log(`Listening ${process.env.PRIVSTRIPE} and connnected to database `)
+        console.log(`Listening ${port} and connnected to database `)
+        // myPort=listener.address().port
+        // console.log(myport)
     }catch(err){
         console.log(`There was this error Syncing with database at App.js ${err}`)
     }
