@@ -69,7 +69,7 @@ localStorage.setItem("cart",cartJson)
 
 componentDidMount(){
     
-    console.log(`running contex:${process.env.port}`)
+    console.log(`running contex:${process.env.PORT}`)
 // fillin up the state with details of products from the database
  return fetch(`http://localhost:80/getproducts`)
  .then(res=>{
