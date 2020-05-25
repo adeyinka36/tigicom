@@ -71,10 +71,9 @@ componentDidMount(){
     
     console.log(`running contex:${process.env.PORT}`)
 // fillin up the state with details of products from the database
- return fetch(`/getproducts`)
+ return fetch(`/api/getproducts`)
  .then(res=>{
-     console.log(`result from initial get ::${res.json()}`)
-     console.log(`result capjson ::${JSON.parse(res)}`)
+     console.log(`result from initial get ::${res}`)
      if(res.status===200){return res.json() }
      else{return console.log( `there was an error retrieving initial data form database`)}
      

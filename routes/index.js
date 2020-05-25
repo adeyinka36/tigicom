@@ -66,7 +66,7 @@ routes.get('/getproducts',async (req,res)=>{
   console.log('gettin products')
   try{
     const db=`mongodb+srv://adeyinka36:Nitrogene2000@cluster0-kni2n.mongodb.net/test?retryWrites=true&w=majority`;
-     mongoose.connect(db
+     await mongoose.connect(db
         ,{
         useUnifiedTopology: true ,
             useNewUrlParser: true }
