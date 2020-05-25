@@ -1,6 +1,6 @@
 const express = require('express');
 const stripe= require('stripe')("sk_test_EwaBCToz7hMAkHjTVGT2Ya4m00Lo4gr2LJ");
-const uuid = require('uuid/v4');
+const uuid = require('uuid');
 const { Schema}= require('mongoose');
 const mongoose=require('mongoose');
 

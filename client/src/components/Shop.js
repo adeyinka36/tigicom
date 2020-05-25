@@ -68,13 +68,12 @@ addItemToCart=(e)=>{
                quantity:e.target.parentElement.getAttribute("quantity")}
         
 
-    console.log("working")
+
      this.props.context.addToCart(obj)
 }
 
 
 search=(e)=>{
-    console.log("working")
     let items= this.state.itemsInShop
    let result=items.filter(item=>item.name.includes(e.target.value))
    this.setState({searchResult:result,searchInput:e.target.value})
