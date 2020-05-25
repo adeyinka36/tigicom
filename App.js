@@ -10,7 +10,7 @@ const cors = require('cors');
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-const port=80;
+const port=process.env.PORT||5000;
 
 let myPort
 
