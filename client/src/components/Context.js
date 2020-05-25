@@ -69,8 +69,9 @@ localStorage.setItem("cart",cartJson)
 
 componentDidMount(){
     
+    console.log(`running contex:${process.env.port}`)
 // fillin up the state with details of products from the database
- return fetch(`http://localhost:${process.env.PORT}/getproducts`)
+ return fetch(`http://localhost:80/getproducts`)
  .then(res=>{
      console.log(`result from initia get ::${res}`)
      if(res.status===200){return res.json() }
