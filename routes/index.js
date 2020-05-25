@@ -1,7 +1,8 @@
 const express = require('express');
 const stripe= require('stripe')("sk_test_EwaBCToz7hMAkHjTVGT2Ya4m00Lo4gr2LJ");
 const uuid = require('uuid/v4');
-const {mongoose, Schema}= require('mongoose');
+const { Schema}= require('mongoose');
+const mongoose=require('mongoose');
 
 
 // const {products,purchases} = require('../models')
@@ -63,7 +64,7 @@ return stripe.customers.create({
 routes.get('/getproducts',async (req,res)=>{
   try{
     const db=`mongodb+srv://adeyinka36:Nitrogene2000@cluster0-kni2n.mongodb.net/test?retryWrites=true&w=majority`;
-    mongoose.connect(db
+     mongoose.connect(db
         ,{
         useUnifiedTopology: true ,
             useNewUrlParser: true }
@@ -80,11 +81,11 @@ routes.get('/getproducts',async (req,res)=>{
 const products= mongoose.model('products',productsItems);
 
 
-  const items=  await products.findAll()
+  const items=  await products.find()
     return res.status(200).json(items)
   }catch(err){
       
-      console.log(`Error is getproducts routs: ${err}`)
+      console.log(`Error in getproducts routs: ${err}`)
       return res.status(500)
   }
 
