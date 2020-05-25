@@ -12,6 +12,7 @@ const routes = express.Router();
 
 // stripe payment route 
 routes.post('/makepayment',async (req,res)=>{
+  
 let quantityPurchased=req.body.product.map(e=>e.quantity)
  quantityPurchased=quantityPurchased.reduce((cur,acc)=>cur+acc)
 
@@ -62,6 +63,7 @@ return stripe.customers.create({
 // route for getting initial products for database 
 
 routes.get('/getproducts',async (req,res)=>{
+  console.log('gettin products')
   try{
     const db=`mongodb+srv://adeyinka36:Nitrogene2000@cluster0-kni2n.mongodb.net/test?retryWrites=true&w=majority`;
      mongoose.connect(db

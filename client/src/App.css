@@ -750,7 +750,13 @@ span{
 .checkout_form_form button:hover{
   color:lightpink;
 }
-
+/* styling loading page */
+.loading{
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
 /* styling FAQ */
 
 .ques{
