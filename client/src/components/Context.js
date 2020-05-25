@@ -73,9 +73,9 @@ componentDidMount(){
     
 // fillin up the state with details of products from the database
  return axios.get(`/api/getproducts`)
- .then(response=>{
-      console.log(response)  
-     if(res.status===200){return response }
+ .then(res=>{
+      console.log(res)  
+     if(res.status===200){return res}
      else{return console.log( `there was an error retrieving initial data form database`)}
      
  })
