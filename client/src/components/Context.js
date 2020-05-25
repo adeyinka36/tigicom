@@ -71,7 +71,7 @@ componentDidMount(){
     
     console.log(`running contex:${process.env.PORT}`)
 // fillin up the state with details of products from the database
- return fetch(`http://localhost:80/getproducts`)
+ return fetch(`/getproducts`)
  .then(res=>{
      console.log(`result from initia get ::${res}`)
      if(res.status===200){return res.json() }
