@@ -72,7 +72,7 @@ sendFormDetails=async(e)=>{
             })
             .then(res=>{if(res.status===200){
                 
-                return window.location = "/"
+                return window.location = "https://vast-brook-05527.herokuapp.com/"
                 
             }})
               
