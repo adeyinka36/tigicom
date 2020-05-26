@@ -65,14 +65,14 @@ sendFormDetails=async(e)=>{
           const headers={"Content-Type":"application/json"}
             console.log("fetching")
         
-            return fetch(`http://localhost:5000/makepayment`,{
+            return fetch(`/api/makepayment`,{
               method: 'POST',
               headers,
               body: JSON.stringify(body)
             })
             .then(res=>{if(res.status===200){
                 
-                return window.location = "http://localhost:3000/"
+                return window.location = "/"
                 
             }})
               
