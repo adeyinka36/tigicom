@@ -72,7 +72,7 @@ routes.get('/getproducts',async (req,res)=>{
             useNewUrlParser: true }
             )
 
-  mongoose.connection.on('connected',()=>{console.log("finally we are connected")}).catch(err=>console.log(`there is an error:${err}`))
+  await mongoose.connection.on('connected',()=>{console.log("we are connected")})
             
   const productsItems= new Schema({
     name:String,
