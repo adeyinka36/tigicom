@@ -18,7 +18,7 @@ const About =()=>{
           <div className="about_middle">
             <div className="about_text">
                <h1>WHAT I DO</h1>
-               <p> In a nutshell, if you need to buy quality weaves, wigs or eyelashes, you have come to the perfect place. Here is a list of some of my services:</p>
+               <p> In a nutshell, if you need to buy quality weaves, wigs or eyelashes, you have come to the perfect place. Here is a list of  my services:</p>
                <h2>Wig Installation</h2>
                <h2>Eyelashes Installation</h2>
                <h2>Sale of Wigs and Eyelashes</h2>
