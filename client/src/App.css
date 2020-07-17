@@ -202,7 +202,7 @@ text-decoration: none;
   margin-bottom: 1.5rem;
 }
 .wig_laying_pic:hover{
-  background-image: url('./image/happy-hair.jpg');
+  background-image: url('./image/out.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -210,7 +210,7 @@ text-decoration: none;
   cursor: pointer;
 }
 .eye_lashes_pic:hover{
-  background-image: url('./image/hair-thumbnail.jpg');
+  background-image: url('./image/out.jpg');
   transform: scale(1.1);
   background-size: cover;
   background-position: center;
