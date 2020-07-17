@@ -15,12 +15,12 @@ class Home extends Component{
             <div className="home_back_container"><div className="main_background_pic"><h1>Summer Sales</h1></div></div>
             <div className="services">
              <div className="wig_laying_container">
-                 <div className="wig_laying_pic"></div>
+                 <link to='/shop'><div className="wig_laying_pic"></div></link>
                  <p>Perfect Wig Laying</p>
                  <p>$100</p>
              </div>
              <div className="eye_lashes_container">
-                 <div className="eye_lashes_pic"></div>
+             <Link to='/shop' ><div className="eye_lashes_pic"></div></Link>
                  <p>Luxurious  Eye_lashes</p>
                  <p>$50</p>
              
