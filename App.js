@@ -55,9 +55,8 @@ app.listen(port,async ()=>{
             )
         await mongoose.connection
 
-        console.log(`Listening ${port} and connnected to database `)
-        // myPort=listener.address().port
-        // console.log(myport)
+        console.log(`Listening ${port} and connnected to db `)
+      
     }catch(err){
         console.log(`There was this error Syncing with database at App.js ${err}`)
     }
